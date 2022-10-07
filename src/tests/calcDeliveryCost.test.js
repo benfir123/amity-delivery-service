@@ -1,3 +1,5 @@
+import calcDeliveryCost from "../utils/calcDeliveryCost";
+
 describe("calcDeliveryCost function", () => {
   const graph = "AB1, AC4, AD10, BE3, CD4, CF2, DE1, EB3, EA2, FD1";
 
