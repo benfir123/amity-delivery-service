@@ -26,3 +26,5 @@ Enter a route where you would like to see the delivery cost (Example: A-B-E). Th
 Enter in constraints such as start town (source node), end town (destination node), and maximum number of stops. Click submit to show possible paths.
 
 ## More about the project
+
+Amity Delivery Service was developed following Test First principles. All the requirements were converted into test cases and code was then refactored to pass said cases. The two main pieces of business logic are the delivery cost function and the possible paths function. The delivery cost function simply looks up the cost associated with each sub-route that the user specified similar to VLOOKUP in Excel. On the other hand, the possible path function uses the Depth-first search (DFS) algorithm to explore the graph as far as possible before backtracking due to reaching the end or meeting constraints.
