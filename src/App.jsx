@@ -144,11 +144,11 @@ const App = () => {
       <div>
         <form onSubmit={handleGraphSubmit}>
           <h2>Step 1</h2>
-          <span>Enter a weighted directed graph with the following format.</span>
+          <span>Enter a weighted directed graph using the format below.</span>
           <small>
             <p>Example: AB1, AC4, AD10, BE3, CD4, CF2, DE1, EB3, EA2, FD1</p>
           </small>
-          <label htmlFor="graphInput">Graph </label>
+          <label htmlFor="graphInput">Graph</label>
           <input type="text" name="graph_input" id="graphInput" onChange={(e) => setGraph(e.target.value)}
                 value={graph} disabled={isGraphValid ? true : false} />
             <div style={{ fontSize: 12, color: "red" }}>
@@ -157,7 +157,7 @@ const App = () => {
             
           </div>
           {isGraphValid && <div style={{ fontSize: 12, color: "green" }}>
-            that looks good
+            that looks good!
           </div>}
                 <button type="submit">Submit</button>
           
@@ -168,7 +168,7 @@ const App = () => {
         <form onSubmit={handleRouteSubmit}>
           <div>
           <h2>Step 2</h2>
-          <span>Enter route to see delivery cost</span>
+          <span>Enter a route to see delivery cost</span>
           <small>
             <p>Example: A-B-E</p>
           </small>
@@ -184,7 +184,7 @@ const App = () => {
             {(deliveryCost && !routeError) &&<div style={{ fontSize: 12, color: "green" }}>
               The delivery cost of that route is: {deliveryCost}
             </div>}
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={isGraphValid ? false : true} >Submit</button>
           </div>
         </form>
 
@@ -193,7 +193,10 @@ const App = () => {
           <div>
           <h2>Step 3</h2>
           <span>Enter conditions to see all possible routes.</span>
-          <label htmlFor="startTown">Start Town</label>
+          <small>
+            <p>Example: E</p>
+          </small>
+          <label htmlFor="startTown">Start Town*</label>
           <input type="text" name="start_town" id="startTown" onChange={(e) => setStartTown(e.target.value)}
                 value={startTown} disabled={isGraphValid ? false : true}  />
                 <div style={{ fontSize: 12, color: "red" }}>
@@ -201,7 +204,10 @@ const App = () => {
             
             
           </div>
-          <label htmlFor="endTown">End Town</label>
+          <small>
+            <p>Example: D</p>
+          </small>
+          <label htmlFor="endTown">End Town*</label>
           <input type="text" name="end_town" id="endTown" onChange={(e) => setEndTown(e.target.value)}
                 value={endTown} disabled={isGraphValid ? false : true} />
                 <div style={{ fontSize: 12, color: "red" }}>
@@ -209,6 +215,9 @@ const App = () => {
             
             
           </div>
+          <small>
+            <p>Example: 4</p>
+          </small>
           <label htmlFor="maxStops">Maximum Stops</label>
           <input type="text" name="max_stops" id="maxStops" onChange={(e) => setMaxStops(e.target.value)}
                 value={maxStops} disabled={isGraphValid ? false : true} />
@@ -217,8 +226,8 @@ const App = () => {
             
             
           </div>
-          <button type="submit">Submit</button>
-          {(possibleRoutes && !startTownError && !endTownError && !maxStopsError) &&<div style={{ fontSize: 12, color: "green" }}>
+          <button type="submit" disabled={isGraphValid ? false : true} >Submit</button>
+          {((possibleRoutes || possibleRoutes === 0) && !startTownError && !endTownError && !maxStopsError) &&<div style={{ fontSize: 12, color: "green" }}>
               The number of possible routes is: {possibleRoutes}
             </div>}
           </div>
