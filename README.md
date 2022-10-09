@@ -2,7 +2,7 @@
 
 A small react web application that can compute edge length and possible paths from a weighted directed graph.
 
-[Live Demo](https://odinbook-mo.netlify.app/) :point_left:
+[Live Demo](https://benfir123.github.io/amity-delivery-service/) :point_left:
 
 ## Features
 
@@ -17,7 +17,7 @@ A small react web application that can compute edge length and possible paths fr
 ## How to use the app
 
 ### Step 1
-Click on the demo link to open up the app in your browser.
+Click on the demo [link](https://benfir123.github.io/amity-delivery-service/) to open up the app in your browser.
 ### Step 2
 Enter your directed graph in the specified format. (Example: AB1, AC4, AD10, BE3, CD4, CF2, DE1, EB3, EA2, FD1)
 ### Step 3
