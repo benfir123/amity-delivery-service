@@ -5,6 +5,7 @@ import calcPossibleRoutes from "./utils/calcPossibleRoutes";
 
 const App = () => {
 
+  //set initial state for all our local state
   const [graph, setGraph] = useState("")
   const [graphError, setGraphError] = useState("")
   const [isGraphValid, setIsGraphValid] = useState(false)
@@ -19,6 +20,7 @@ const App = () => {
   const [maxStopsError, setMaxStopsError] = useState("")
   const [possibleRoutes, setPossibleRoutes] = useState("")
 
+  //run validate graph function to check for possible error cases and notify the user
   const validateGraph = () => {
     const regex = RegExp(
       "^[A-Z]{2}[0-9]+$"
@@ -52,6 +54,7 @@ const App = () => {
     }
   };
 
+  //run validate route function to check for possible error cases and notify the user
   const validateRoute = () => {
     const regex = RegExp(
       "^[A-Z]{1}$"
@@ -84,6 +87,7 @@ const App = () => {
     
   };
 
+  //run validate constraints function to check for possible error cases and notify the user
   const validateConstraints = () => {
     const routeRegex = RegExp(
       "^[A-Z]{1}$"
@@ -142,6 +146,7 @@ const App = () => {
 
     <div className="container">
       <div>
+        {/* Form #1: take in graph input from user */}
         <form onSubmit={handleGraphSubmit}>
           <h2>Step 1</h2>
           <span>Enter a weighted directed graph using the format below.</span>
@@ -153,18 +158,14 @@ const App = () => {
                 value={graph} disabled={isGraphValid ? true : false} />
             <div style={{ fontSize: 12, color: "red" }}>
             {graphError}
-            
-            
           </div>
           {isGraphValid && <div style={{ fontSize: 12, color: "green" }}>
             that looks good!
           </div>}
                 <button type="submit">Submit</button>
-          
         </form>
         </div>
-
-
+        {/* Form #2: take in route input from user */}
         <form onSubmit={handleRouteSubmit}>
           <div>
           <h2>Step 2</h2>
@@ -178,8 +179,6 @@ const App = () => {
 
           <div style={{ fontSize: 12, color: "red" }}>
               {routeError}
-          
-          
             </div>
             {(deliveryCost && !routeError) &&<div style={{ fontSize: 12, color: "green" }}>
               The delivery cost of that route is: {deliveryCost}
@@ -187,8 +186,7 @@ const App = () => {
           <button type="submit" disabled={isGraphValid ? false : true} >Submit</button>
           </div>
         </form>
-
-
+        {/* Form #3: take in constraint input from user */}
         <form onSubmit={handleConstraintSubmit}>
           <div>
           <h2>Step 3</h2>
@@ -201,8 +199,6 @@ const App = () => {
                 value={startTown} disabled={isGraphValid ? false : true}  />
                 <div style={{ fontSize: 12, color: "red" }}>
             {startTownError}
-            
-            
           </div>
           <small>
             <p>Example: D</p>
@@ -212,8 +208,6 @@ const App = () => {
                 value={endTown} disabled={isGraphValid ? false : true} />
                 <div style={{ fontSize: 12, color: "red" }}>
             {endTownError}
-            
-            
           </div>
           <small>
             <p>Example: 4</p>
@@ -223,8 +217,6 @@ const App = () => {
                 value={maxStops} disabled={isGraphValid ? false : true} />
                 <div style={{ fontSize: 12, color: "red" }}>
             {maxStopsError}
-            
-            
           </div>
           <button type="submit" disabled={isGraphValid ? false : true} >Submit</button>
           {((possibleRoutes || possibleRoutes === 0) && !startTownError && !endTownError && !maxStopsError) &&<div style={{ fontSize: 12, color: "green" }}>
@@ -233,8 +225,6 @@ const App = () => {
           </div>
         </form>
       </div>
-      
-
   </div>;
 }
 
