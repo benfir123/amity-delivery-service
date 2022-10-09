@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/amity-delivery-service/static/css/main.957331c3.css",
+    "main.js": "/amity-delivery-service/static/js/main.fdb8e2d5.js",
+    "index.html": "/amity-delivery-service/index.html",
+    "main.957331c3.css.map": "/amity-delivery-service/static/css/main.957331c3.css.map",
+    "main.fdb8e2d5.js.map": "/amity-delivery-service/static/js/main.fdb8e2d5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.957331c3.css",
+    "static/js/main.fdb8e2d5.js"
+  ]
+}
