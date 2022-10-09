@@ -11,7 +11,7 @@ A small react web application that can compute edge length and possible paths fr
 
 ## Technologies used
 
-- [React](https://pl.reactjs.org/)
+- [React](https://pl.reactjs.org/) (Bootstrapped using [Create React App](https://create-react-app.dev/)
 - [Jest](https://jestjs.io/)
 
 ## How to use the app
